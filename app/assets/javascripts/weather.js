@@ -7,7 +7,11 @@ $('.fetchWeather').submit(function(event) {
     $.getJSON(BASE_URL + "?q=" + city + ",us" + "&APPID=" + API_KEY, function(data) {
       console.log(data.list)
       parse(data.list)
-      // $('.response').html(data.list[0]['main']['humidity']);
+      $('.response').append("<h2>Humidity</h2>")
+      humidity.forEach(function(item, index) {
+        $('.response').append("<li>" + item + "</li>");
+      });
+      
     })
      .done(function(){
       alert("done")
